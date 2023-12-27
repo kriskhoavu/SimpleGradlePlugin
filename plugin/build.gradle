@@ -1,0 +1,44 @@
+plugins {
+    id "maven-publish"
+    id "java-gradle-plugin"
+    id "groovy-gradle-plugin"
+}
+
+version "${project.properties["release"] ?: version}"
+
+gradlePlugin {
+    plugins {
+        myPlugin {
+            id = "com.kris.gradle.myplugin"
+            implementationClass = "com.kris.gradle.MyPlugin"
+        }
+        externalPlugin {
+            id = "com.kris.gradle.externalplugin"
+            implementationClass = "com.kris.gradle.ExternalPlugin"
+        }
+        internalPlugin1 {
+            id = "com.kris.gradle.internal1"
+            implementationClass = "com.kris.gradle.InternalPlugin1"
+        }
+        internalPlugin2 {
+            id = "com.kris.gradle.internal2"
+            implementationClass = "com.kris.gradle.InternalPlugin2"
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            url "../repos/maven-repo"
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.apache.commons:commons-lang3:3.12.0"
+}

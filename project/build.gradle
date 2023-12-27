@@ -1,0 +1,22 @@
+buildscript {
+    dependencies {
+//        classpath "com.kris.gradle:plugin:0.0.1-SNAPSHOT"
+    }
+}
+
+plugins {
+    id "java-library"
+//    id "com.kris.gradle.externalplugin" version "0.0.1-SNAPSHOT"
+}
+
+//apply(plugin: "conventions")
+
+group 'com.kris.gradle.project'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    maven {
+        url "../repos/maven-repo"
+    }
+    mavenCentral()
+}
