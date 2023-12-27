@@ -18,5 +18,5 @@ repositories {
     maven {
         url "../repos/maven-repo"
     }
-    jcenter()
+    mavenCentral()
 }

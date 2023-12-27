@@ -8,17 +8,17 @@ import org.gradle.api.tasks.TaskContainer;
 import java.util.List;
 
 class ExternalPlugin implements Plugin<Project> {
-    @Override
-    public void apply(final Project project) {
-        project.getPlugins().apply("com.mgmtp.chefsculinar.ccsap.internal1");
-        project.getPlugins().apply("com.mgmtp.chefsculinar.ccsap.internal2");
-        
+	@Override
+	public void apply(final Project project) {
+		project.getPlugins().apply("com.mgmtp.chefsculinar.ccsap.internal1");
+		project.getPlugins().apply("com.mgmtp.chefsculinar.ccsap.internal2");
+
 //        System.out.println("Applying ExternalPlugin... ");
-        final TaskContainer tasks = project.getTasks();
-        
-        tasks.register("external", task -> {
-            task.setDependsOn(List.of(tasks.named("internal1"), tasks.named("internal2")));
-            System.out.println("========== Result: " + StringUtils.capitalize("external-plugin"));
-        });
-    }
+		final TaskContainer tasks = project.getTasks();
+		
+		tasks.register("external", task -> {
+			task.setDependsOn(List.of(tasks.named("internal1"), tasks.named("internal2")));
+			System.out.println("========== Result: " + StringUtils.capitalize("external-plugin"));
+		});
+	}
 }
