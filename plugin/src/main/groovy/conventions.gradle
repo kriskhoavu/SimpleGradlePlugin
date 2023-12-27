@@ -1,0 +1,10 @@
+plugins {
+    id "com.kris.gradle.externalplugin"
+}
+
+tasks.register('printConvention') {
+    it.dependsOn(tasks.named("external"))
+    it.doLast {
+        println("==================== Result: Conventions")
+    }
+}

@@ -1,0 +1,18 @@
+pluginManagement {
+    repositories {
+        maven {
+            url "repos/maven-repo"
+        }
+        gradlePluginPortal()
+        ivy {
+            url "repos/ivy-repo"
+        }
+    }
+
+    plugins {
+        id "com.kris.gradle" version "0.0.1-SNAPSHOT"
+    }
+}
+
+include ':plugin'
+include ':project'
